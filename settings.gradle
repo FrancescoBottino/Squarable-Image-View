@@ -1,0 +1,3 @@
+include ':SquarableImageView'
+include ':app'
+rootProject.name = "Squarable Image View"
