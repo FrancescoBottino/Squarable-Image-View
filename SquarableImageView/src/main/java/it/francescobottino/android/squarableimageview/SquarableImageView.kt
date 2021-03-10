@@ -12,7 +12,14 @@ open class SquarableImageView @JvmOverloads constructor(
         NONE, WIDTH, HEIGHT
     }
 
+    private var _squareOn: SquaringType = SquaringType.NONE
     var squareOn: SquaringType
+        get() = _squareOn
+        set(value) {
+            _squareOn = value
+            requestLayout()
+            invalidate()
+        }
 
     init {
         context.theme.obtainStyledAttributes(
@@ -20,7 +27,7 @@ open class SquarableImageView @JvmOverloads constructor(
             R.styleable.SquarableImageView, defStyleAttr, 0).apply {
 
             try {
-                squareOn = SquaringType.values()[getInt(R.styleable.SquarableImageView_squareOn, 0)]
+                _squareOn = SquaringType.values()[getInt(R.styleable.SquarableImageView_squareOn, 0)]
             } finally {
                 recycle()
             }
@@ -32,14 +39,9 @@ open class SquarableImageView @JvmOverloads constructor(
         val width = measuredWidth
         val height = measuredHeight
 
-        val chosenSide = when(squareOn) {
-            SquaringType.NONE -> return
-            SquaringType.HEIGHT -> height
-            SquaringType.WIDTH -> width
-        }
+        if(_squareOn == SquaringType.NONE || width == height) return
 
-        if(width != height) {
-            setMeasuredDimension(chosenSide, chosenSide)
-        }
+        val chosenSide = if(_squareOn == SquaringType.WIDTH) width else height
+        setMeasuredDimension(chosenSide, chosenSide)
     }
 }

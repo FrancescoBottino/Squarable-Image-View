@@ -1,18 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <it.francescobottino.android.squarableimageview.SquarableImageView
+            android:id="@+id/horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF0000"
+            app:srcCompat="@drawable/nature" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/hor_width"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/width" />
+
+            <Button
+                android:id="@+id/hor_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/none" />
+
+            <Button
+                android:id="@+id/hor_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/height" />
+        </LinearLayout>
+
+        <it.francescobottino.android.squarableimageview.SquarableImageView
+            android:id="@+id/vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF0000"
+            app:srcCompat="@drawable/boat" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/ver_width"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/width" />
+
+            <Button
+                android:id="@+id/ver_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/none" />
+
+            <Button
+                android:id="@+id/ver_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/height" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
