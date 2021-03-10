@@ -12,7 +12,7 @@ open class SquarableImageView @JvmOverloads constructor(
         NONE, WIDTH, HEIGHT
     }
 
-    lateinit var squareOn: SquaringType
+    var squareOn: SquaringType
 
     init {
         context.theme.obtainStyledAttributes(
